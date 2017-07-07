@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section class="box-container box-release">
+<section class="box-container">
 	<div class="container">
 		<h2><?php the_category(); ?></h2>
 
@@ -9,10 +9,6 @@
 			<?php while ( have_posts() ) : the_post();
 
 				get_template_part( 'content', get_post_format() ); ?>
-
-				<?php /* if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif; */ ?>
 				
 				<?php /*the_post_navigation( array(
 					'prev_text' => '<span class="prev"><i class="fa fa-long-arrow-left"></i> %title</span>',

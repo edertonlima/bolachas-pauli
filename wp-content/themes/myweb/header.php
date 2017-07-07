@@ -167,61 +167,59 @@
 
 	<header class="header">
 		<div class="container">
-			<div class="row">
 
-				<h1>
-					<a href="<?php echo get_home_url(); ?>" title="<?php bloginfo('name'); ?>">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="<?php bloginfo('name'); ?>">
-					</a>
-				</h1>
+			<h1>
+				<a href="<?php echo get_home_url(); ?>" title="<?php bloginfo('name'); ?>">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="<?php bloginfo('name'); ?>">
+				</a>
+			</h1>
 
-				<div class="box-menu">
-					<a href="javascript:" class="menu-mobile"><span><em>X</em></span></a>
+			<div class="box-menu">
+				<a href="javascript:" class="menu-mobile"><span><em>X</em></span></a>
 
-					<nav class="nav">
-						<ul class="menu-principal">
-							<li class="<?php if((is_post_type_archive('lojas')) or (is_post_type_archive('produto')) or (is_tax('categoria_produto')) or (is_singular('produto'))){ echo 'active'; } ?>">
-								<a href="<?php echo get_home_url(); ?>/produto" title="PRODUTOS" class="">PRODUTOS</a>
-							</li>
+				<nav class="nav">
+					<ul class="menu-principal">
+						<li class="<?php if((is_post_type_archive('lojas')) or (is_post_type_archive('produto')) or (is_tax('categoria_produto')) or (is_singular('produto'))){ echo 'active'; } ?>">
+							<a href="<?php echo get_home_url(); ?>/produto" title="PRODUTOS" class="">PRODUTOS</a>
+						</li>
 
-							<li class="<?php if((is_page('simulador-cores')) or (is_page('calculadora-consumo'))){ echo 'active'; } ?>">
-								<a href="<?php echo get_permalink(get_page_by_path('simulador-cores')); ?>" title="SIMULADORES">SIMULADORES</a>
-								<ul class="submenu">
-									<li><a href="<?php echo get_permalink(get_page_by_path('simulador-cores')); ?>" title="SIMULADOR DE CORES" class="<?php if(is_page('simulador-cores')){ echo 'active'; } ?>">SIMULADOR<br>DE CORES</a></li>		
-									<li><a href="<?php echo get_permalink(get_page_by_path('calculadora-consumo')); ?>" title="CALCULADORA DE CONSUMO" class="<?php if(is_page('calculadora-consumo')){ echo 'active'; } ?>">CALCULADORA<br>DE CONSUMO</a></li>	
-								</ul>
-							</li>
+						<li class="<?php if((is_page('simulador-cores')) or (is_page('calculadora-consumo'))){ echo 'active'; } ?>">
+							<a href="<?php echo get_permalink(get_page_by_path('simulador-cores')); ?>" title="SIMULADORES">SIMULADORES</a>
+							<ul class="submenu">
+								<li><a href="<?php echo get_permalink(get_page_by_path('simulador-cores')); ?>" title="SIMULADOR DE CORES" class="<?php if(is_page('simulador-cores')){ echo 'active'; } ?>">SIMULADOR<br>DE CORES</a></li>		
+								<li><a href="<?php echo get_permalink(get_page_by_path('calculadora-consumo')); ?>" title="CALCULADORA DE CONSUMO" class="<?php if(is_page('calculadora-consumo')){ echo 'active'; } ?>">CALCULADORA<br>DE CONSUMO</a></li>	
+							</ul>
+						</li>
 
-							<li class="<?php if((is_page('empresa'))){ echo 'active'; } ?>">
-								<a href="<?php echo get_permalink(get_page_by_path('empresa')); ?>" title="EMPRESA">EMPRESA</a>
-								<ul class="submenu">
-									<li><a href="<?php echo get_home_url(); ?>/matriz_filiais" title="MATRIZ E UNIDADES" class="<?php if(is_post_type_archive('matriz_filiais')){ echo 'active'; } ?>">MATRIZ E<br>UNIDADES</a></li>		
-									<li><a href="<?php echo get_permalink(get_page_by_path('trabalhe-conosco')); ?>" title="TRABALHE CONOSCO" class="<?php if(is_page('trabalhe-conosco')){ echo 'active'; } ?>">TRABALHE<br>CONOSCO</a></li>		
-									<li><a href="<?php echo get_permalink(get_page_by_path('empresa')); ?>#premios" title="PRÊMIOS" class="">PRÊMIOS</a></li>				
-									<li><a href="<?php echo get_permalink(get_page_by_path('empresa')); ?>#ideologia-corporativa" title="IDEOLOGIA CORPORATIVA" class="">IDEOLOGIA<br>CORPORATIVA</a></li>
-								</ul>
-							</li>
-							<li class="<?php if((is_post_type_archive('matriz_filiais')) or (is_page('trabalhe-conosco')) or (is_page('fale-conosco'))){ echo 'active'; } ?>">
-								<a href="javascript:" title="CONTATO">CONTATO</a>
-								<ul class="submenu">
-									<li><a href="<?php echo get_home_url(); ?>/matriz_filiais" title="MATRIZ E UNIDADES" class="<?php if(is_post_type_archive('matriz_filiais')){ echo 'active'; } ?>">MATRIZ E<br>UNIDADES</a></li>		
-									<li><a href="<?php echo get_permalink(get_page_by_path('fale-conosco')); ?>" title="FALE CONOSCO" class="<?php if(is_page('fale-conosco')){ echo 'active'; } ?>">FALE<br>CONOSCO</a></li>		
-									<li><a href="<?php echo get_permalink(get_page_by_path('trabalhe-conosco')); ?>" title="TRABALHE CONOSCO" class="<?php if(is_page('trabalhe-conosco')){ echo 'active'; } ?>">TRABALHE<br>CONOSCO</a></li>
-								</ul>
-							</li>
-							<li class="<?php if((is_category('release')) or (is_category('na-midia')) or (is_page('downloads')) or (is_singular('post'))){ echo 'active'; } ?>">
-								<a href="javascript:" title="MÍDIA">MÍDIA</a>
-								<ul class="submenu">
-									<li><a href="<?php echo get_home_url(); ?>/midia/release" title="RELEASES" class="<?php if(is_category('release')){ echo 'active'; } ?>">RELEASES</a></li>		
-									<li><a href="<?php echo get_home_url(); ?>/midia/na-midia" title="NA MÍDIA" class="<?php if(is_category('na-midia')){ echo 'active'; } ?>">NA MÍDIA</a></li>		
-									<li><a href="<?php echo get_permalink(get_page_by_path('downloads')); ?>" title="DOWNLOAD" class="<?php if(is_page('downloads')){ echo 'active'; } ?>">DOWNLOAD</a></li>				
-								</ul>
-							</li>
-						</ul>
-					</nav>
-
-				</div>
+						<li class="<?php if((is_page('empresa'))){ echo 'active'; } ?>">
+							<a href="<?php echo get_permalink(get_page_by_path('empresa')); ?>" title="EMPRESA">EMPRESA</a>
+							<ul class="submenu">
+								<li><a href="<?php echo get_home_url(); ?>/matriz_filiais" title="MATRIZ E UNIDADES" class="<?php if(is_post_type_archive('matriz_filiais')){ echo 'active'; } ?>">MATRIZ E<br>UNIDADES</a></li>		
+								<li><a href="<?php echo get_permalink(get_page_by_path('trabalhe-conosco')); ?>" title="TRABALHE CONOSCO" class="<?php if(is_page('trabalhe-conosco')){ echo 'active'; } ?>">TRABALHE<br>CONOSCO</a></li>		
+								<li><a href="<?php echo get_permalink(get_page_by_path('empresa')); ?>#premios" title="PRÊMIOS" class="">PRÊMIOS</a></li>				
+								<li><a href="<?php echo get_permalink(get_page_by_path('empresa')); ?>#ideologia-corporativa" title="IDEOLOGIA CORPORATIVA" class="">IDEOLOGIA<br>CORPORATIVA</a></li>
+							</ul>
+						</li>
+						<li class="<?php if((is_post_type_archive('matriz_filiais')) or (is_page('trabalhe-conosco')) or (is_page('fale-conosco'))){ echo 'active'; } ?>">
+							<a href="javascript:" title="CONTATO">CONTATO</a>
+							<ul class="submenu">
+								<li><a href="<?php echo get_home_url(); ?>/matriz_filiais" title="MATRIZ E UNIDADES" class="<?php if(is_post_type_archive('matriz_filiais')){ echo 'active'; } ?>">MATRIZ E<br>UNIDADES</a></li>		
+								<li><a href="<?php echo get_permalink(get_page_by_path('fale-conosco')); ?>" title="FALE CONOSCO" class="<?php if(is_page('fale-conosco')){ echo 'active'; } ?>">FALE<br>CONOSCO</a></li>		
+								<li><a href="<?php echo get_permalink(get_page_by_path('trabalhe-conosco')); ?>" title="TRABALHE CONOSCO" class="<?php if(is_page('trabalhe-conosco')){ echo 'active'; } ?>">TRABALHE<br>CONOSCO</a></li>
+							</ul>
+						</li>
+						<li class="<?php if((is_category('release')) or (is_category('na-midia')) or (is_page('downloads')) or (is_singular('post'))){ echo 'active'; } ?>">
+							<a href="javascript:" title="MÍDIA">MÍDIA</a>
+							<ul class="submenu">
+								<li><a href="<?php echo get_home_url(); ?>/midia/release" title="RELEASES" class="<?php if(is_category('release')){ echo 'active'; } ?>">RELEASES</a></li>		
+								<li><a href="<?php echo get_home_url(); ?>/midia/na-midia" title="NA MÍDIA" class="<?php if(is_category('na-midia')){ echo 'active'; } ?>">NA MÍDIA</a></li>		
+								<li><a href="<?php echo get_permalink(get_page_by_path('downloads')); ?>" title="DOWNLOAD" class="<?php if(is_page('downloads')){ echo 'active'; } ?>">DOWNLOAD</a></li>				
+							</ul>
+						</li>
+					</ul>
+				</nav>
 
 			</div>
+
 		</div>
 	</header>

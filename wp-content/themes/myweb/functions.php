@@ -7,18 +7,17 @@
  */
 
 /* HABILITAR / DESABILITAR */
-// Enable featured images
 add_theme_support( 'post-thumbnails' );
 
-// Unable the admin bar
+// Unable admin bar
 add_filter('show_admin_bar', '__return_false');
 
 // remove itens padrões
 add_action( 'init', 'my_custom_init' );
 function my_custom_init() {
-	remove_post_type_support( 'post', 'editor' ); // REMOVE EDITOR POST
-	remove_post_type_support('page', 'editor'); // REMOVE EDITOR PAGE
-	//remove_post_type_support( 'page', 'thumbnail' );
+	//remove_post_type_support( 'post', 'editor' );
+	//remove_post_type_support('page', 'editor');
+	remove_post_type_support( 'page', 'thumbnail' );
 }
 
 // REMOVE PARENT PAGE
@@ -60,6 +59,38 @@ function gera_url_encurtada($url){
         return $xml->migre;
     }
 }
+
+
+// muda nome post
+function change_post_label() {
+    global $menu;
+    global $submenu;
+    $menu[5][0] = 'Blog';
+    $submenu['edit.php'][5][0] = 'Todos os posts';
+    $submenu['edit.php'][10][0] = 'Adicionar post';
+    echo '';
+}
+function change_post_object() {
+    global $wp_post_types;
+    $labels = &$wp_post_types['post']->labels;
+    $labels->name = 'Blog';
+    $labels->singular_name = 'Blog';
+    $labels->add_new = 'Adicionar post';
+    $labels->add_new_item = 'Adicionar post';
+    $labels->edit_item = 'Editar post';
+    $labels->new_item = 'Post';
+    $labels->view_item = 'Ver post';
+    $labels->search_items = 'Buscar post';
+    $labels->not_found = 'Nenhum post encontrado';
+    $labels->not_found_in_trash = 'Nenhum post encontrado na lixeira';
+    $labels->all_items = 'Todos os posts';
+    $labels->menu_name = 'Blog';
+    $labels->name_admin_bar = 'Blog';
+}
+ 
+add_action( 'admin_menu', 'change_post_label' );
+add_action( 'init', 'change_post_object' );
+
 
 /* PAGINAS CONFIGURAÇÕES */
 if( function_exists('acf_add_options_page') ) {
@@ -122,110 +153,87 @@ function paginacao() {
            echo '</ul>';
         }
 }
+
+
+/* NOVOS POST TYPES */
+// PRODUTOS
+add_action( 'init', 'create_post_type_produto' );
+function create_post_type_produto() {
+
+	$labels = array(
+	    'name' => _x('Produtos', 'post type general name'),
+	    'singular_name' => _x('Produto', 'post type singular name'),
+	    'add_new' => _x('Adicionar novo', 'Produto'),
+	    'add_new_item' => __('Addicionar novo produto'),
+	    'edit_item' => __('Editar produto'),
+	    'new_item' => __('Novo produto'),
+	    'all_items' => __('Todos as produtos'),
+	    'view_item' => __('Visualizar produto'),
+	    'search_items' => __('Procurar produto'),
+	    'not_found' =>  __('Nenhum produto encontrado.'),
+	    'not_found_in_trash' => __('Nenhum produto encontrado na lixeira.'),
+	    'parent_item_colon' => '',
+	    'menu_name' => 'Produtos'
+	);
+	$args = array(
+	    'labels' => $labels,
+	    'public' => true,
+	    'publicly_queryable' => true,
+	    'show_ui' => true,
+	    'show_in_menu' => true,
+	    'rewrite' => true,
+	    'capability_type' => 'post',
+	    'has_archive' => true,
+	    'hierarchical' => false,
+	    'menu_position' => null,
+	    'menu_icon' => 'dashicons-tag',
+	    'supports' => array('title','thumbnail')
+	  );
+
+    register_post_type( 'produto', $args );
+}
+
+add_action( 'init', 'create_taxonomy_categoria_produto' );
+function create_taxonomy_categoria_produto() {
+
+	$labels = array(
+	    'name' => _x( 'Categoria', 'taxonomy general name' ),
+	    'singular_name' => _x( 'Categoria', 'taxonomy singular name' ),
+	    'search_items' =>  __( 'Procurar categoria' ),
+	    'all_items' => __( 'Todas as categorias' ),
+	    'parent_item' => __( 'Categoria pai' ),
+	    'parent_item_colon' => __( 'Categoria pai:' ),
+	    'edit_item' => __( 'Editar categoria' ),
+	    'update_item' => __( 'Atualizar categoria' ),
+	    'add_new_item' => __( 'Adicionar nova categoria' ),
+	    'new_item_name' => __( 'Nova categoria' ),
+	    'menu_name' => __( 'Categoria' ),
+	);
+
+    register_taxonomy( 'categoria_produto', array( 'produto' ), array(
+        'hierarchical' => true,
+        'labels' => $labels,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'show_in_tag_cloud' => true,
+        'query_var' => true,
+		'has_archive' => 'produto',
+		'rewrite' => array(
+		    'slug' => 'produto',
+		    'with_front' => false,
+			),
+        )
+    );
+}
+
+
+
+
+
 /*
-	// muda nome post
-	function change_post_label() {
-	    global $menu;
-	    global $submenu;
-	    $menu[5][0] = 'Releases';
-	    $submenu['edit.php'][5][0] = 'Todos os Releases';
-	    $submenu['edit.php'][10][0] = 'Adicionar Release';
-	    $submenu['edit.php'][16][0] = 'Tags';
-	    echo '';
-	}
-	function change_post_object() {
-	    global $wp_post_types;
-	    $labels = &$wp_post_types['post']->labels;
-	    $labels->name = 'Releases';
-	    $labels->singular_name = 'Release';
-	    $labels->add_new = 'Adicionar Release';
-	    $labels->add_new_item = 'Adicionar Release';
-	    $labels->edit_item = 'Editar Release';
-	    $labels->new_item = 'Release';
-	    $labels->view_item = 'Ver Release';
-	    $labels->search_items = 'Buscar Release';
-	    $labels->not_found = 'Nenhum Release encontrado';
-	    $labels->not_found_in_trash = 'Nenhum Release encontrado no Lixo';
-	    $labels->all_items = 'Todos Releases';
-	    $labels->menu_name = 'Releases';
-	    $labels->name_admin_bar = 'Releases';
-	}
-	 
-	add_action( 'admin_menu', 'change_post_label' );
-	add_action( 'init', 'change_post_object' );
-	// muda nome post
 
 
 
-
-	// PRODUTOS
-	add_action( 'init', 'create_post_type_produto' );
-	function create_post_type_produto() {
-
-		$labels = array(
-		    'name' => _x('Produtos', 'post type general name'),
-		    'singular_name' => _x('Produto', 'post type singular name'),
-		    'add_new' => _x('Adicionar Nova', 'Produto'),
-		    'add_new_item' => __('Add New Produto'),
-		    'edit_item' => __('Edit Produto'),
-		    'new_item' => __('New Produto'),
-		    'all_items' => __('Todas as Produto'),
-		    'view_item' => __('View Produto'),
-		    'search_items' => __('Search Produto'),
-		    'not_found' =>  __('No Produto found'),
-		    'not_found_in_trash' => __('No Produto found in Trash'),
-		    'parent_item_colon' => '',
-		    'menu_name' => 'Produtos'
-		);
-		$args = array(
-		    'labels' => $labels,
-		    'public' => true,
-		    'publicly_queryable' => true,
-		    'show_ui' => true,
-		    'show_in_menu' => true,
-		    'rewrite' => true,
-		    'capability_type' => 'post',
-		    'has_archive' => true,
-		    'hierarchical' => false,
-		    'menu_position' => null,
-		    'menu_icon' => 'dashicons-tag',
-		    'supports' => array('title','thumbnail')
-		  );
-
-	    register_post_type( 'produto', $args );
-	}
-
-	add_action( 'init', 'create_taxonomy_categoria_produto' );
-	function create_taxonomy_categoria_produto() {
-
-		$labels = array(
-		    'name' => _x( 'Categorias de Produto', 'taxonomy general name' ),
-		    'singular_name' => _x( 'Categorias', 'taxonomy singular name' ),
-		    'search_items' =>  __( 'Search Categorias' ),
-		    'all_items' => __( 'All Categories' ),
-		    'parent_item' => __( 'Parent Categorias' ),
-		    'parent_item_colon' => __( 'Parent Categorias:' ),
-		    'edit_item' => __( 'Edit Categorias' ),
-		    'update_item' => __( 'Update Categorias' ),
-		    'add_new_item' => __( 'Add New Categorias' ),
-		    'new_item_name' => __( 'New Categorias Name' ),
-		    'menu_name' => __( 'Categorias' ),
-		);
-
-	    register_taxonomy( 'categoria_produto', array( 'produto' ), array(
-	        'hierarchical' => true,
-	        'labels' => $labels,
-	        'show_ui' => true,
-	        'show_in_tag_cloud' => true,
-	        'query_var' => true,
-			'has_archive' => 'produto',
-			'rewrite' => array(
-			    'slug' => 'produto',
-			    'with_front' => false,
-				),
-	        )
-	    );
-	}
 
 
 	// matriz e filiais
@@ -308,7 +316,7 @@ if($producao){
 	add_action('admin_head', 'my_custom_fonts');
 
 	function my_custom_fonts() {
-	  echo '<style>
+	  echo '<style> /*
 		#menu-media, #menu-comments, #menu-appearance, #menu-plugins, #menu-tools, #menu-settings, #toplevel_page_edit-post_type-acf, #toplevel_page_edit-post_type-acf-field-group, 
 		#toplevel_page_zilla-likes, 
 		#screen-options-link-wrap, 
@@ -319,11 +327,10 @@ if($producao){
 		#commentsdiv, 
 		#toplevel_page_wpglobus_options, 
 		.taxonomy-category .form-field.term-parent-wrap, 
-		.wp-menu-separator
-		/*#toplevel_page_pmxi-admin-home li:nth-child(1), #toplevel_page_pmxi-admin-home li:nth-child(3), #toplevel_page_pmxi-admin-home li:nth-child(4), #toplevel_page_pmxi-admin-home li:nth-child(5) */ 
+		.wp-menu-separator 
 		{
 			display: none!important;
-		}
+		} */
 	  </style>';
 
 	  echo '
@@ -349,6 +356,12 @@ if($producao){
 				jQuery("#toplevel_page_wpglobus_options").remove();
 				jQuery("#commentstatusdiv").remove();
 				jQuery("#commentsdiv").remove();
+
+				jQuery(".user-rich-editing-wrap").remove();
+				jQuery(".user-admin-color-wrap").remove();
+				jQuery(".user-comment-shortcuts-wrap").remove();
+				jQuery(".user-admin-bar-front-wrap").remove();
+				jQuery(".user-language-wrap").remove();
 
 				jQuery("#toplevel_page_delete_all_posts").detach().insertBefore("#toplevel_page_pmxi-admin-home");
 				jQuery("#toplevel_page_delete_all_posts .wp-menu-name").html("Apagar Lojas");
@@ -485,12 +498,12 @@ add_action('pre_get_posts', 'my_pre_get_posts');
 
 
 
-	/* Insere campo do link do VIDEO *
-	add_action( 'admin_menu', 'create_videoURL' );
+	/* Insere campo do link do VIDEO */
+	/*add_action( 'admin_menu', 'create_videoURL' );
 	add_action( 'save_post', 'save_videoURL', 10, 2 );
 
 	function create_videoURL() {
-		add_meta_box( 'url-video', 'URL do Vídeo', 'videoURL', 'videos', 'normal', 'high' );
+		add_meta_box( 'url-video', 'URL do Vídeo', 'videoURL', 'page', 'normal', 'high' );
 	}
 
 	function videoURL( $object, $box ) { ?>
@@ -512,9 +525,7 @@ add_action('pre_get_posts', 'my_pre_get_posts');
 
 		elseif ( '' == $new_meta_value && $meta_value )
 			delete_post_meta( $post_id, 'URL do Vídeo', $meta_value );
-	}
-
-	*/
+	}*/
 
 
 
