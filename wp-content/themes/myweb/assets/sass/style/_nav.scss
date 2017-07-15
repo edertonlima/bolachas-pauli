@@ -1,68 +1,101 @@
 .nav {
-	margin-top: 6px;
 	width: 100%;
-	float: left;
 
 	ul {
-		text-align: right;
 
 		li {
+			position: relative;
 			display: inline-block;
 			margin: 0;
 			padding: 0;
 
 			a {
+				margin-left: -4px;
+				display: block;
+				height: 60px;
 				font-size: 1rem;
+				line-height: 70px;
 				color: #ffffff;
-				font-weight: $light;
-				padding: 0 20px 5px;
-				border-bottom: 5px solid #000000;
+				font-weight: $bold;
+				padding: 0 25px;
 				text-transform: uppercase;
 				text-decoration: none;
 				@include animacao();
 			}
 
-			&:hover {
-				ul {
+			&:hover, &.active {
+				> a {
+					background-color: $dourado;
+				}
+
+				> ul {
 					display: block!important;
 					visibility: visible!important;
+				}
+			}
+
+			&:first-child {
+				a {
+					margin-left: 0;
 				}
 			}
 
 
 			ul {
 				display: none;
-				height: 100px;
 				width: 100%;
-				position: fixed;
 				left: 0;
 				top: 81px;
 				z-index: 999;
-				text-align: center;
 
 				li {
-					height: 100px;
+					display: block;
 
 					a {
-						font-size: 1.5rem;
-						line-height: 1.5rem;
-						padding: 0 20px 0 100px;
-						border-bottom: 0;
-						display: table-cell;
-						vertical-align: middle;
-						height: 100px;
-						box-sizing: content-box;
-						text-align: left;
-						background-position: left top;
-						background-repeat: no-repeat;
-						//text-indent: -100000px;
+						display: inline-block;
+						margin-left: 0px;
+						line-height: 60px;
+						color: $vermelho;
+						border-bottom: 1px solid $vermelho;
+					}
+
+					&:hover, &.active {
+						> a {
+							background-color: rgba($dourado, .5);
+						}
+
+						> ul {
+							display: block!important;
+							visibility: visible!important;
+						}
 					}
 				}
-			}
 
-			&:hover {
-				ul {
-					display: block;
+				&.submenu {
+					position: absolute;
+					width: 320px;
+					left: 0;
+					top: 62px;
+					margin-left: -4px;
+
+					&:before {
+						content: '';
+						background-color: rgba(#FFF1E2, .9);
+						position: fixed;
+						top: 120px;
+						width: 100%;
+						height: 100vh;
+						left: 0;
+					}
+				}
+
+				&.submenu-sub {
+					display: none;
+					margin-left: 60px;
+
+					a {
+						padding: 0 15px;
+					}
 				}
 			}
 		}
@@ -86,7 +119,7 @@
 	z-index: 99999;
 
 	@media all and (max-width: 800px) {
-		display: block;
+		/*display: block;*/
 	}
 
 	span {

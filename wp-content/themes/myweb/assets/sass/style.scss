@@ -5,9 +5,15 @@
 @import 'style/_variaveis';
 @import 'style/_fonts';
 @import 'style/_estrutura';
-@import 'style/_elementos';
+@import 'style/_elementos'; 
 @import 'style/_form';
 @import 'style/_nav';
 @import 'style/_slide';
 @import 'style/_header';
 @import 'style/_footer';
+
+/* PAGES */
+@import 'style/page/_home';
+@import 'style/page/_produto';
+@import 'style/page/_empresa';
+@import 'style/page/_contato';

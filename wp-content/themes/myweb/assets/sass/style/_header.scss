@@ -1,3 +1,37 @@
 .header {
+	position: fixed;
+	width: 100%;
+	min-width: $width;
+	top: 0;
+	z-index: 999;
 
+	.top-header {
+		height: 60px;
+		background-color: #ffffff;
+		@include clear;
+
+		.tel {
+			font-size: 1.125rem;
+			color: $vermelho;
+			float: right;
+			line-height: 60px;
+			font-weight: $bold;
+		}
+
+	}
+
+	.top-menu {
+		height: 60px;
+		background-color: $vermelho;
+		border-bottom: 5px solid $dourado;
+		@include clear;
+
+		h1 {
+			margin-top: -44px;
+		}
+
+		.box-menu {
+			float: right;
+		}
+	}
 }

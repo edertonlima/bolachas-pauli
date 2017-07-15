@@ -1,3 +1,21 @@
 .footer {
-	
+	height: 50px;
+	background-color: $dourado;
+	width: 100%;
+	line-height: 50px;
+
+	.copy {
+		float: left;
+		color: #ffffff;
+		font-size: .625rem;
+	}
+
+	.di20 {
+		float: right;
+
+		img {
+			position: relative;
+			top: 4px;
+		}
+	}
 }

@@ -1,60 +1,55 @@
 form {
-	margin-top: 30px;
 	width: 100%;
 	@include clear();
 
 	input, textarea {
 		max-width: 100%;
-	}
-
-	label {
-		font-size: 1.5rem; 
-		color: $verde;
-		font-weight: $light;
-		line-height: 35px;
-		padding-top: 20px;
-		padding-bottom: 20px;
-
-		&[for='mensagem'] {
-			opacity: 0.6;
-		}
+		width: 100%;
 	}
 
 	input[type='text'], input[type='email'] {
 		background-color: transparent;
-		font-size: 1.5rem; 
-		color: $verde;
-		font-weight: $light;
-		line-height: 35px;
-		box-sizing: border-box;
+		font-size: .75rem; 
+		color: $cor-txt;
+		font-weight: $regular;
+		line-height: 28px;
+		height: 28px;
+		border: 1px solid $verde-limao;
+		border-radius: 5px;
+		padding: 0 10px;
+		margin-bottom: 10px;
+		@include box-sizing;
 	}
 
 	textarea {
 		background-color: transparent;
-		font-size: 1.5rem; 
-		color: $verde;
-		font-weight: $light;
-		border: 2px solid #5a5758;
-		width: 100%;
-		height: 115px;
-		padding: 20px;
+		padding: 10px;
+		font-size: .75rem; 
+		color: $cor-txt;
+		font-weight: $bold;
+		border: 1px solid $verde-limao;
+		border-radius: 5px;
+		height: 95px;
 		resize: vertical;
-		@include box-sizing();
+		@include box-sizing;
 	}
 
 	button, input[type='submit'] {
+		border-radius: 5px;
+		margin-top: 10px;
+		display: block;
 		width: 100%;
-		height: 55px;
-		line-height: 55px;
-		background-color: $verde;
+		height: 28px;
+		line-height: 28px;
+		background-color: $verde-limao;
 		color: #ffffff;
 		font-weight: $bold;
-		font-size: 1.75rem;
+		font-size: .75rem; 
 		text-align: center;
-		@include animacao();
+		@include animacao;
 
 		&:hover {
-			background-color: darken($verde, 10%);
+			background-color: darken($verde-limao, 10%);
 		}
 	}
 

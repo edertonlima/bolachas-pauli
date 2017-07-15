@@ -1,0 +1,41 @@
+.produto {
+	a {
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		position: relative;
+		width: 100%;
+		height: 40vh;
+		display: block;
+		overflow: hidden;
+
+		.hover-prod {
+			position: absolute;
+			background-color: rgba(#ffffff, .5);
+			color: $pink;
+			font-weight: $bold;
+			font-size: 2rem;
+			height: 150px;
+			width: 100%;
+			text-align: center;
+			bottom: -150px;
+			line-height: 150px;
+			@include animacao;
+
+			img {
+				display: inline;
+				position: relative;
+				top: 16px;
+				height: 60px;
+			}
+
+
+		}
+
+		&:hover {
+			.hover-prod {
+				bottom: 0;
+			}
+		}
+	}
+}

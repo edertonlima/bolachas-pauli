@@ -95,14 +95,14 @@ add_action( 'init', 'change_post_object' );
 /* PAGINAS CONFIGURAÇÕES */
 if( function_exists('acf_add_options_page') ) {
 
-	/*acf_add_options_page(array(
+	acf_add_options_page(array(
 		'page_title' 	=> 'Slide Home',
 		'menu_title'	=> 'Slide Home',
 		'menu_slug' 	=> 'slide-home',
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false,
 		'icon_url' 		=> 'dashicons-admin-collapse'
-	));*/
+	));
 
 	/*acf_add_options_page(array(
 		'page_title' 	=> 'Formulários',
