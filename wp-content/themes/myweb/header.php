@@ -127,6 +127,13 @@
 			jQuery('.footer').css({position: 'relative'});
 		}
 	});*/
+
+	jQuery('.goTo').click(function() {
+	    /*jQuery('html, body').animate({
+	        scrollTop: jQuery(jQuery(this).attr('rel')).offset().top
+	    }, 2000);*/
+	});
+
 </script>
 
 </head>
@@ -136,7 +143,7 @@
 
 		<div class="top-header">			
 			<div class="container">
-				<span class="tel">SAC: (48) 3272.1420</span>
+				<span class="tel"><?php the_field('telefone','option'); ?></span>
 			</div>
 		</div>
 
@@ -153,36 +160,73 @@
 
 					<nav class="nav">
 						<ul class="menu-principal">
-							<li class="<?php if((is_post_type_archive('lojas')) or (is_post_type_archive('produto')) or (is_tax('categoria_produto')) or (is_singular('produto'))){ echo 'active'; } ?>">
-								<a href="<?php echo get_home_url(); ?>/produto" title="QUALIDADE" class="">QUALIDADE</a>
+							<li class="">
+								<a href="<?php echo get_home_url(); ?>/#qualidade" title="QUALIDADE" class="goTo" rel="#qualidade">QUALIDADE</a>
 							</li>
 
-							<li class="menu <?php if((is_page('simulador-cores')) or (is_page('calculadora-consumo'))){ echo 'active'; } ?>">
-								<a href="javascript:" title="PRODUTOS">PRODUTOS</a>
+							<li class="menu <?php if((is_post_type_archive('')) or (is_post_type_archive('produtos')) or (is_tax('categoria_produto')) or (is_singular('produto'))){ echo ''; } ?>">
+								<a href="<?php echo get_home_url(); ?>/produtos" title="PRODUTOS">PRODUTOS</a>
 								<ul class="submenu">
-									<li>
-										<a href="javascript:" title="" class="">COM GLÚTEN</a>
-										<ul class="submenu-sub">
-											<li><a href="javascript:" title="" class="">AMANTEIGADO</a></li>
-											<li><a href="javascript:" title="" class="">MAISENA COM COCO</a></li>
-											<li><a href="javascript:" title="" class="">CASADINHO MESCLADO</a></li>
-										</ul>
-									</li>
-									<li><a href="javascript: title="" class="">SEM GLÚTEN</a></li>
-									<li><a href="javascript:" title="" class="">NATALINAS</a></li>
+
+									<?php
+										$args = array(
+										    'taxonomy'      => 'categoria_produto',
+										    'parent'        => 0,
+										    'orderby'       => 'name',
+										    'order'         => 'ASC',
+										    'hierarchical'  => 1,
+										    'pad_counts'    => 0
+										);
+										$categories = get_categories( $args );
+										foreach ( $categories as $category ){ ?>
+
+											<li>
+												<a href="<?php echo get_term_link($category->term_id); ?>" title="<?php echo $category->name; ?>"><?php echo $category->name; ?></a>
+
+												<?php
+												$prod_cat = get_posts(
+													array(
+														'posts_per_page' => -1,
+														'post_type' => 'produtos',
+														'tax_query' => array(
+															array(
+																'taxonomy' => 'categoria_produto',
+																'field' => 'term_id',
+																'terms' => $category->term_id,
+															)
+														)
+													)
+												);
+
+												if(count($prod_cat) > 0){ ?>
+													<ul class="submenu-sub">
+
+														<?php foreach ( $prod_cat as $produto ) { ?>
+															<li><a href="<?php the_permalink($produto->ID); ?>" title="echo $produto->post_title;">
+																<?php echo $produto->post_title; ?>
+															</a></li>
+														<?php } ?>
+
+													</ul>
+												<?php } ?>
+											</li>
+											
+										<?php }
+									?>
+
 								</ul>
 							</li>
 
-							<li class="<?php if((is_post_type_archive('lojas')) or (is_post_type_archive('produto')) or (is_tax('categoria_produto')) or (is_singular('produto'))){ echo 'active'; } ?>">
-								<a href="<?php echo get_home_url(); ?>/produto" title="NOVIDADES" class="">NOVIDADES</a>
+							<li class="">
+								<a href="<?php echo get_home_url(); ?>/produtos/novidades" title="NOVIDADES" class="">NOVIDADES</a>
 							</li>
 
-							<li class="<?php if((is_post_type_archive('lojas')) or (is_post_type_archive('produto')) or (is_tax('categoria_produto')) or (is_singular('produto'))){ echo 'active'; } ?>">
-								<a href="<?php echo get_home_url(); ?>/produto" title="EMPRESA" class="">EMPRESA</a>
+							<li class="">
+								<a href="<?php echo get_home_url(); ?>/#empresa" title="EMPRESA" class="goTo" rel="#empresa">EMPRESA</a>
 							</li>
 
-							<li class="<?php if((is_post_type_archive('lojas')) or (is_post_type_archive('produto')) or (is_tax('categoria_produto')) or (is_singular('produto'))){ echo 'active'; } ?>">
-								<a href="<?php echo get_home_url(); ?>/produto" title="CONTATO" class="">CONTATO</a>
+							<li class="">
+								<a href="<?php echo get_home_url(); ?>/#contato" title="CONTATO" class="goTo" rel="#contato">CONTATO</a>
 							</li>
 						</ul>
 					</nav>

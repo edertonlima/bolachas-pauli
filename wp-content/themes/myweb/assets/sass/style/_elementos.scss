@@ -22,6 +22,7 @@ h2 {
 	color: #ffffff;
 	text-align: center;
 	position: relative;
+	text-transform: uppercase;
 
 	&:after {
 		content: "";
@@ -45,6 +46,14 @@ h2 {
 
 		&:after {
 			border-top-color: $azul;
+		}
+	}
+
+	&.laranja {
+		background-color: $laranja;
+
+		&:after {
+			border-top-color: $laranja;
 		}
 	}
 
@@ -79,6 +88,14 @@ h2 {
 			border-top-color: $verde-limao;
 		}
 	}
+
+	&.bege {
+		background-color: $bege;
+
+		&:after {
+			border-top-color: $bege;
+		}
+	}
 }
 
 h3 {
@@ -89,7 +106,12 @@ h3 {
 }
 
 h4 {
-
+	font-size: 1rem;
+	line-height: 1rem;
+	text-transform: uppercase;
+	font-weight: $bold;
+	border-bottom: 1px solid $bege;
+	color: $bege;
 }
 
 h5 {

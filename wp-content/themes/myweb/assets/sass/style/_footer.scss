@@ -12,10 +12,15 @@
 
 	.di20 {
 		float: right;
+		@include animacao;
 
 		img {
 			position: relative;
 			top: 4px;
+		}
+
+		&:hover {
+			opacity: .5;
 		}
 	}
 }

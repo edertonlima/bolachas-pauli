@@ -61,10 +61,15 @@ body * {
 		}
 	}
 
-
 	@for $i from 1 through 12 {
 		.col-#{$i} {
 			width: $i*(100%/12);
+		}
+	}
+
+	@for $i from 1 through 12 {
+		.col-m-#{$i} {
+			margin-left: $i*(100%/12);
 		}
 	}
 }

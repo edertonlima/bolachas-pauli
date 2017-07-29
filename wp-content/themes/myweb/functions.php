@@ -187,10 +187,10 @@ function create_post_type_produto() {
 	    'hierarchical' => false,
 	    'menu_position' => null,
 	    'menu_icon' => 'dashicons-tag',
-	    'supports' => array('title','thumbnail')
+	    'supports' => array('title','thumbnail','custom-fields')
 	  );
 
-    register_post_type( 'produto', $args );
+    register_post_type( 'produtos', $args );
 }
 
 add_action( 'init', 'create_taxonomy_categoria_produto' );
@@ -210,16 +210,16 @@ function create_taxonomy_categoria_produto() {
 	    'menu_name' => __( 'Categoria' ),
 	);
 
-    register_taxonomy( 'categoria_produto', array( 'produto' ), array(
+    register_taxonomy( 'categoria_produto', array( 'produtos' ), array(
         'hierarchical' => true,
         'labels' => $labels,
         'show_ui' => true,
         'show_admin_column' => true,
         'show_in_tag_cloud' => true,
         'query_var' => true,
-		'has_archive' => 'produto',
+		'has_archive' => 'produtos',
 		'rewrite' => array(
-		    'slug' => 'produto',
+		    'slug' => 'produtos',
 		    'with_front' => false,
 			),
         )

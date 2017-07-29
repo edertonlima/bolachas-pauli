@@ -3,10 +3,6 @@
 <!-- slide -->
 <section class="box-content box-slide">
 	<div class="slide">
-		<div class="controle-slide">
-			<a class="left" href="#slide" role="button" data-slide="prev"></a>
-			<a class="right" href="#slide" role="button" data-slide="next"></a>
-		</div>
 		<div class="carousel slide" data-ride="carousel" data-interval="1000000" id="slide">
 
 			<div class="carousel-inner" role="listbox">
@@ -40,13 +36,14 @@
 </section>
 
 <section class="box-content box-qualidade">
+	<span id="qualidade" style="position: absolute; top: 700px;"></span>
 	<h2 class="azul">QUALIDADE</h2>
 	<div class="container">
 		<div class="qualidade">
-			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/img_qualidade.jpg" alt="" />
+			<img src="<?php the_field('imagem_qualidade',get_page_by_path('empresa')); ?>" alt="" />
 			<div class="det-qualidade">
-				<span class="title">Prêmio Talentos Empreendedores 2004 e 2005</span>
-				<p>Finalista na Categoria Indústria, da Região da Grande Florianópolis no Prêmio Talentos Empreendedores 2004 e 2005 certificada pelo SEBRAE/SC, GRUPO GERDAU e RBS.</p>
+				<span class="title"><?php the_field('titulo_qualidade',get_page_by_path('empresa')); ?></span>
+				<p><?php the_field('descricao_qualidade',get_page_by_path('empresa')); ?></p>
 			</div>
 		</div>
 	</div>
@@ -56,68 +53,51 @@
 	<h2 class="pink">PRODUTOS</h2>
 	<div class="produto">
 		<div class="row no-padding">
-			<div class="col-6">
-				<a href="javascript:" title="" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/produto/produto-1.jpg');">
-					<span class="hover-prod">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/produto/ico-produto-1.png" alt="" />
-						COM GLÚTEN
-					</span>
-				</a>
-			</div>
 
-			<div class="col-6">
-				<a href="javascript:" title="" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/produto/produto-2.jpg');">
-					<span class="hover-prod">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/produto/ico-produto-2.png" alt="" />
-						SEM GLÚTEN
-					</span>
-				</a>
-			</div>
+			<?php
+				$args = array(
+				    'taxonomy'      => 'categoria_produto',
+				    'parent'        => 0,
+				    'orderby'       => 'name',
+				    'order'         => 'ASC',
+				    'hierarchical'  => 1,
+				    'pad_counts'    => 0
+				);
+				$categories = get_categories( $args );
+				foreach ( $categories as $category ){ ?>
 
-			<div class="col-6">
-				<a href="javascript:" title="" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/produto/produto-3.jpg');">
-					<span class="hover-prod">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/produto/ico-produto-3.png" alt="" />
-						NATALINAS
-					</span>
-				</a>
-			</div>
+					<div class="col-6">
+						<a href="<?php echo get_term_link($category->term_id); ?>" title="<?php echo $category->name; ?>" style="background-image: url('<?php the_field('imagem_listagem',$category->taxonomy.'_'.$category->term_id); ?>');">
+							<span class="hover-prod">
+								<img src="<?php the_field('ico_listagem',$category->taxonomy.'_'.$category->term_id); ?>" alt="" />
+								<?php echo $category->name; ?>
+							</span>
+						</a>
+					</div>
+					
+				<?php }
+			?>
 
-			<div class="col-6">
-				<a href="javascript:" title="" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/produto/produto-4.jpg');">
-					<span class="hover-prod">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/produto/ico-produto-4.png" alt="" />
-						NOVIDADES
-					</span>
-				</a>
-			</div>
 		</div>
 	</div>
 </section>
 
 <section class="box-content">
+	<span id="empresa" style="position: absolute; top: 2000px;"></span>
 	<h2 class="marrom">A EMPRESA</h2>
 	<div class="container">
 		<div class="empresa">
 			<div class="row">
 				<div class="col-6">
 					<h3>VISÃO</h3>
-					<p align="center">Ser excelência na produção de bolachas e biscoitos.</p>
+					<p align="center"><?php the_field('visao',get_page_by_path('empresa')); ?></p>
 
 					<h3 class="missao">MISSÃO & VALORES</h3>
-					<p class="center">Produção de alimentos de qualidade, respeitando sempre as normas das boas práticas de fabricação, proporcionando também um ambiente de trabalho harmonioso onde haja respeito e seriedade.</p>
+					<p class="center"><?php the_field('missao_valores',get_page_by_path('empresa')); ?></p>
 				</div>
 
 				<div class="col-6">
-					<p>A empresa se tornou realidade quando sua proprietária no intuito de ajudar no orçamento doméstico decidiu preparar e confeitar bolachas a serem comercializadas em pequenos mercados da cidade de Florianópolis sendo fundada em primeiro de março de 1993.</p>
-
-					<p>A experiência da empresária se deu com a família, que em grande parte atua no comércio; desenvolvendo aptidão no preparo de bolachas com sua mãe, que confeitava bolachas para o Natal, oportunidade em que o produto era fabricado de maneira artesanal.
-
-					<p>Com o sucesso dos produtos nos mini-mercados as vendas passaram a ser feitas também em supermercados do município de Antônio Carlos, sede da Empresa e local em que reside e nasceu a proprietária. Assim, com o passar do tempo e a adesão de mais clientes, surgiu a fábrica de Bolachas Pauli, que passou a ter grandes encomendas e a vender para supermercados da grande Florianópolis e todo o estado de Santa Catarina e capital do Paraná.</p>
-
-					<p>A Empresa hoje possui uma linha de produtos diferenciados, mas sempre mantendo a característica de produtos caseiros e artesanais além de estar sempre buscando a melhoria contínua e a garantia da qualidade dos produtos que fabrica e evidenciando assim a conquista de novos mercados e clientes.</p>
-
-					<p>Hoje a Bolachas Pauli conta com vários colaboradores, bem como profissionais que prestam consultoria em Engenharia de Alimentos e Administração, além dos promotores de venda distribuídos pelo Estado de Santa Catarina e capital do Estado do Paraná.</p>
+					<?php echo get_post_field('post_content', get_page_by_path('empresa')); ?>
 				</div>
 			</div>
 		</div>
@@ -125,6 +105,7 @@
 </section>
 
 <section class="box-content">
+	<span id="contato" style="position: absolute; top: 2900px;"></span>
 	<h2 class="verde-limao">CONTATO</h2>
 	<div class="contato">
 		<div class="row no-padding">
@@ -133,8 +114,10 @@
 				<h3>CENTRAL DE ATENDIMENTO</h3>
 				<p>Para outras informações entre em contato através do Serviço de Atendimento ao Cliente.</p>
 
-				<h3>SAC: (48) 3272.1420</h3>
-				<p>Horário de atendimento, Segunda a Sexta: 8h ás 17h.</p>
+				<h3><?php the_field('telefone','option'); ?></h3>
+				<?php if(get_field('atendimento','option')){ ?>
+					<p><?php the_field('atendimento','option'); ?></p>
+				<?php } ?>
 
 				<form action="javascript:">
 					<input type="text" name="" placeholder="Nome:">

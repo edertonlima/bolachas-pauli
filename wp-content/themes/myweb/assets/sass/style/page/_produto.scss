@@ -5,7 +5,7 @@
 		background-repeat: no-repeat;
 		position: relative;
 		width: 100%;
-		height: 40vh;
+		height: 50vh;
 		display: block;
 		overflow: hidden;
 
@@ -20,6 +20,7 @@
 			text-align: center;
 			bottom: -150px;
 			line-height: 150px;
+			text-transform: uppercase;
 			@include animacao;
 
 			img {
@@ -36,6 +37,109 @@
 			.hover-prod {
 				bottom: 0;
 			}
+		}
+	}
+}
+
+.list-produto, .det-produto {
+	padding: 60px 100px 0;
+	display: block;
+
+	.post {
+
+		img {
+			display: block;
+		}
+
+		h4 {
+			margin: 40px 0 15px;
+			text-align: center;
+			display: block;
+			padding-bottom: 5px;
+			position: relative;
+			text-shadow: 1px #ffffff;
+			z-index: 2;
+			@include clear;
+		}
+
+		.item-info {
+			margin-bottom: 20px;
+			line-height: 1rem;
+			font-size: .8125rem;
+			display: block;
+
+			strong {
+				color: $bege;
+			}
+		}
+
+		.saiba-mais {
+			line-height: .8125rem;
+			font-size: .8125rem;
+			color: $bege;
+			float: right;
+			text-decoration: none;
+			@include animacao;
+
+			.fa {
+				color: $bege;
+				font-size: 1.5rem;
+				position: relative;
+				top: 4px;
+				margin-left: 5px;
+				@include animacao;
+			}
+
+			&:hover {
+				color: $vermelho;
+
+				.fa {
+					color: $vermelho;
+				}
+			}
+		}
+	}
+}
+
+.list-produto {
+	.post {
+		width: 33.333%;
+		padding: 0 20px;
+		margin-bottom: 100px;
+		float: left;
+		@include box-sizing;
+
+		img {
+			width: 100%;
+			display: block;
+			position: relative;
+			z-index: 0;
+			@include animacao;
+		}
+
+		&:hover {
+			img {
+				@include scale-rotate;
+			}
+		}
+	}
+}
+
+.det-produto {
+	padding-bottom: 60px;
+
+	.post {
+		width: 100%;
+
+		img {
+			width: auto;
+			display: block;
+			max-width: 100%;
+			margin: 0 auto 30px;
+		}
+
+		.item-info {
+			padding: 0 60px;
 		}
 	}
 }
