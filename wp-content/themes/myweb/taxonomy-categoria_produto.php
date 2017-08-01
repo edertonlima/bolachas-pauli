@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <?php $terms = get_queried_object(); ?>
+
 <!-- slide -->
 <section class="box-content box-slide">
 	<div class="slide">

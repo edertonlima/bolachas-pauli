@@ -3,48 +3,48 @@
 <head>
 
 <?php 
-	$titulo = '';
-	$descricao = get_field('descricao', 'option');
-	$imgPage = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), '' );
-	$page = get_page_by_path('sobre-mim');
-	$imagem = get_field('imagem_perfil',$page->ID);
+	$titulo_princ = get_field('titulo', 'option');
+	$descricao_princ = get_field('descricao', 'option');
+	$imagem_princ = get_field('imagem_principal', 'option');
 	$url = get_home_url();
+	$imgPage = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), '' );
 
-	if(is_category()){ 
-		$category= get_queried_object(); //print_r($category);
-		$infoCategoria = get_the_category($category->term_id); //print_r($infoCategoria);
-		$titulo = $infoCategoria[0]->name.' - ';
-		$descricao = $infoCategoria[0]->description;
-		//$imagem = '';
-		$url = $url.'/'.$infoCategoria[0]->slug;
+	if(is_tax()){
+		$terms = get_queried_object();
+		$titulo = $terms->name;
+		$descricao = $terms->description;
+		$imagem = get_field('imagem_listagem',$terms->taxonomy.'_'.$terms->term_id);
+		$url = get_term_link($terms->term_id);
 	}
 
-	if(is_page()){
-		if(!is_home()){
-			$titulo = get_the_title().' - ';
-			if(get_field('descrição') != ''){
-				$descricao = get_field('descrição');
-			}
-			if($imgPage[0] != ''){
-				$imagem = $imgPage[0];	
-			}			
-			$url = get_the_permalink();
-		}
+	if(is_archive()){
+		$titulo = get_field('titulo_pagina','option');
+		$descricao = get_field('descricao_pagina','option');
+		$imagem = get_field('imagem_pagina','option');
+		$url = $url.'/produtos';
 	}
 
 	if(is_single()){
-		$titulo = get_the_title().' - ';
-		if(get_field('descrição') != ''){
-			$descricao = get_field('descrição');
-		}
+		$titulo = get_the_title();
+		$descricao = get_the_excerpt();
+		
 		if($imgPage[0] != ''){
 			$imagem = $imgPage[0];	
 		}			
 		$url = get_the_permalink();
 	}
 
-	$titulo = $titulo.get_bloginfo('name'); 
-	$autor = get_bloginfo('name');
+	if($titulo == ''){
+		$titulo = $titulo_princ;
+	}else{
+		$titulo = $titulo.' - '.$titulo_princ;
+	}
+	
+	if($descricao == ''){
+		$descricao = $descricao_princ;
+	}
+
+	$autor = 'Di20 Desenvolvimento';
 ?>
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -91,10 +91,6 @@
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css" media="screen" />
 
-<?php if(is_singular('produto')){ ?>
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/owl.carousel.min.css" type="text/css" media="screen" />
-<?php } ?>
-
 <!-- JQUERY -->
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/bootstrap.min.js"></script>
@@ -105,8 +101,18 @@
 
 	jQuery(document).ready(function(){
 
-		jQuery('.menu-active').click(function(){
-			alert();
+		jQuery('.menu-mobile').click(function(){
+			if(jQuery(this).hasClass('active')){
+				jQuery('.nav').css('top','-100vh');
+				jQuery(this).removeClass('active');
+			}else{
+				if(jQuery(window).width() <= 400){
+					jQuery('.nav').css('top','100px');
+				}else{
+					jQuery('.nav').css('top','120px');
+				}
+				jQuery(this).addClass('active');
+			}
 		});
 
 		if(jQuery('body').height() <= jQuery(window).height()){
@@ -116,24 +122,15 @@
 		}
 	});	
 
-	/*jQuery(window).resize(function(){
+	jQuery(window).resize(function(){
 		jQuery('.menu-mobile').removeClass('active');
-		jQuery('.nav').css('left','100vw');
-		jQuery('.region').css('left','100vw');
-		jQuery('.info-tel').css('left','100vw');
+		jQuery('.nav').css('top','-100vh');
 		if(jQuery('body').height() <= jQuery(window).height()){
 			jQuery('.footer').css({position: 'absolute', bottom: '0px'});
 		}else{
 			jQuery('.footer').css({position: 'relative'});
 		}
-	});*/
-
-	jQuery('.goTo').click(function() {
-	    /*jQuery('html, body').animate({
-	        scrollTop: jQuery(jQuery(this).attr('rel')).offset().top
-	    }, 2000);*/
 	});
-
 </script>
 
 </head>
@@ -202,7 +199,7 @@
 													<ul class="submenu-sub">
 
 														<?php foreach ( $prod_cat as $produto ) { ?>
-															<li><a href="<?php the_permalink($produto->ID); ?>" title="echo $produto->post_title;">
+															<li><a href="<?php the_permalink($produto->ID); ?>" title="<?php echo $produto->post_title; ?>">
 																<?php echo $produto->post_title; ?>
 															</a></li>
 														<?php } ?>

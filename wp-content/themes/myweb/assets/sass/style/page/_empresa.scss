@@ -7,6 +7,10 @@
 
 		&.missao {
 			margin-top: 170px;
+
+			@media all and (max-width: 750px){
+				margin-top: 30px;
+			}
 		}
 	}
 
@@ -15,6 +19,12 @@
 		
 		&:last-child {
 			margin-bottom: 0px;
+		}
+	}
+
+	@media all and (max-width: 750px){
+		.col-6 {
+			width: 100%;
 		}
 	}
 }

@@ -4,6 +4,12 @@
 	img {
 		float: left;
 		width: 150px;
+
+		@media all and (max-width: 750px){
+			float: none;
+			display: block;
+			margin: 0 auto 30px;
+		}
 	}
 	.det-qualidade {
 		width: 100%;
@@ -15,10 +21,15 @@
 			margin-bottom: 50px;
 			color: $azul;
 			font-size: 1.312rem;
+
+			@media all and (max-width: 1000px){
+				margin-bottom: 20px;
+			}
 		}
 
-		p {
-
+		@media all and (max-width: 750px){
+		    padding: 0;
+		    text-align: center;
 		}
 	}
 }

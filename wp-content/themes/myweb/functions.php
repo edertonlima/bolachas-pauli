@@ -127,6 +127,12 @@ if( function_exists('acf_add_options_page') ) {
 		'parent_slug'	=> 'configuracoes-geral',
 	));
 
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Produtos',
+		'menu_title'	=> 'Produtos',
+		'parent_slug'	=> 'configuracoes-geral',
+	));
+
 }
 
 /* PAGINAÇÃO */
@@ -187,7 +193,7 @@ function create_post_type_produto() {
 	    'hierarchical' => false,
 	    'menu_position' => null,
 	    'menu_icon' => 'dashicons-tag',
-	    'supports' => array('title','thumbnail','custom-fields')
+	    'supports' => array('title','thumbnail','custom-fields','excerpt')
 	  );
 
     register_post_type( 'produtos', $args );

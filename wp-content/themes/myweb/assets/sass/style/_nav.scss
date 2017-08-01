@@ -2,6 +2,7 @@
 	width: 100%;
 
 	ul {
+		@include box-sizing;
 
 		li {
 			position: relative;
@@ -61,7 +62,9 @@
 
 					&:hover, &.active {
 						> a {
-							background-color: rgba($dourado, .5);
+							color: $dourado;
+							border-color: $dourado;
+							background-color: transparent;
 						}
 
 						> ul {
@@ -77,6 +80,9 @@
 					left: 0;
 					top: 62px;
 					margin-left: -4px;
+					overflow-x: hidden;
+					overflow-y: scroll;
+					height: 78vh;
 
 					&:before {
 						content: '';
@@ -101,8 +107,92 @@
 		}
 	}
 
-	@media all and (max-width: 800px){
-	
+	@media all and (max-width: 880px){
+		top: -100vh;
+		right: 0;
+		position: fixed;
+		width: 100%;
+		height: 80vh;
+		overflow-x: scroll;
+		background-color: rgba(#FFF1E2, .9);
+
+		ul {
+			padding: 40px 0;
+
+			li {
+				width: 100%;
+				display: block;
+				text-align: right;
+				padding-right: 100px;
+
+				a {
+					display: inline-block;
+					color: $vermelho;
+					line-height: normal;
+					height: auto;
+					padding: 5px 10px;
+					font-size: 1.5rem;
+
+					&:hover, &.active {
+						color: $dourado;
+						background-color: transparent;
+					}
+				}
+
+				&:hover, &.active {
+					> a {
+						background-color: transparent;
+					}
+				}
+
+				ul {
+					display: block;
+
+					&.submenu {
+						position: relative;
+						width: 100%;
+						left: 0;
+						top: 0px;
+						margin-left: 0px;
+						overflow-x: auto;
+						overflow-y: auto;
+						height: auto;
+						padding: 10px 40px 10px 0;
+
+						li {
+							padding: 0;
+
+							a {
+								display: inline-block;
+								line-height: normal;
+								height: auto;
+								padding: 5px 10px;
+							}
+						}
+
+						&:before {
+							display: none;
+						}
+					}
+
+					&.submenu-sub {
+						display: block;
+						margin-left: 0px;
+						padding: 5px 0px 10px 0;
+
+						a {
+							padding: 0 15px;
+							border-bottom: none;
+							font-size: .875rem;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@media all and (max-width: 400px){
+		height: 85vh;
 	}
 }
 
@@ -118,8 +208,8 @@
 	position: relative;
 	z-index: 99999;
 
-	@media all and (max-width: 800px) {
-		/*display: block;*/
+	@media all and (max-width: 880px) {
+		display: block;
 	}
 
 	span {
@@ -135,7 +225,7 @@
 			@include animacao();
 
 			&:hover {
-				color: $laranja;
+				color: $dourado;
 			}
 		}
 	}
@@ -176,7 +266,7 @@
 		&:hover {
 
 			span, span:before, span:after {
-				background-color: $laranja;
+				background-color: $dourado;
 			}
 		}
 	}

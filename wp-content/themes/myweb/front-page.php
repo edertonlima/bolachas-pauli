@@ -120,12 +120,13 @@
 				<?php } ?>
 
 				<form action="javascript:">
-					<input type="text" name="" placeholder="Nome:">
-					<input type="text" name="" placeholder="E-mail:">
-					<input type="text" name="" placeholder="Telefone:">
-					<input type="text" name="" placeholder="Assunto:">
-					<textarea></textarea>
-					<button>ENVIAR</button>
+					<input type="text" name="nome" id="nome" placeholder="Nome:">
+					<input type="text" name="email" id="email" placeholder="E-mail:">
+					<input type="text" name="telefone" id="telefone" placeholder="Telefone:">
+					<input type="text" name="assunto" id="assunto" placeholder="Assunto:">
+					<textarea name="texto" id="texto"></textarea>
+					<button type="button" class="enviar">ENVIAR</button>
+					<p class="msg-form"></p>
 				</form>
 			</div>
 			<div class="col-6">
@@ -142,18 +143,19 @@
 	jQuery(document).ready(function(){	    
 
 		// FORM
-		/*jQuery(".enviar").click(function(){
+		jQuery(".enviar").click(function(){
 			jQuery('.enviar').html('ENVIANDO').prop( "disabled", true );
 			jQuery('.msg-form').removeClass('erro ok').html('');
 			var nome = jQuery('#nome').val();
 			var email = jQuery('#email').val();
 			var telefone = jQuery('#telefone').val();
-			var mensagem = jQuery('#mensagem').val();
-			var para = '<?php the_field('email', 'option'); ?>';
-			var nome_site = '<?php bloginfo('name'); ?>';
+			var assunto = jQuery('#assunto').val();
+			var mensagem = jQuery('#texto').val();
+			var para = '<?php get_field('email', 'option'); ?>';
+			var nome_site = '<?php get_field('titulo', 'option'); ?>';
 
 			if(email!=''){
-				jQuery.getJSON("<?php echo get_template_directory_uri(); ?>/mail.php", { nome:nome, email:email, telefone:telefone, mensagem:mensagem, para:para, nome_site:nome_site }, function(result){		
+				jQuery.getJSON("<?php echo get_template_directory_uri(); ?>/mail.php", { nome:nome, email:email, telefone:telefone, assunto:assunto, mensagem:mensagem, para:para, nome_site:nome_site }, function(result){		
 					if(result=='ok'){
 						resultado = 'Enviado com sucesso! Obrigado.';
 						classe = 'ok';
@@ -162,14 +164,14 @@
 						classe = 'erro';
 					}
 					jQuery('.msg-form').addClass(classe).html(resultado);
-					jQuery('.news form').trigger("reset");
+					jQuery('form').trigger("reset");
 					jQuery('.enviar').html('CADASTRAR').prop( "disabled", false );
 				});
 			}else{
 				jQuery('.msg-form').addClass('erro').html('Por favor, digite um e-mail válido.');
 				jQuery('.enviar').html('CADASTRAR').prop( "disabled", false );
 			}
-		});*/
+		});
 
 	});
 </script>

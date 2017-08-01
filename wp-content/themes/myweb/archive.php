@@ -11,14 +11,14 @@
 
 			<div class="carousel-inner" role="listbox">
 
-				<?php if( have_rows('slide_home','option') ):
+				<?php if( have_rows('slide_produtos','option') ):
 					$slide = 0;
-					while ( have_rows('slide_home','option') ) : the_row();
+					while ( have_rows('slide_produtos','option') ) : the_row();
 
-						if(get_sub_field('imagem_slide_home','option')){
+						if(get_sub_field('imagem_slide_produtos','option')){
 							$slide = $slide+1; ?>
 
-							<div class="item <?php if($slide == 1){ echo 'active'; } ?>" style="background-image: url('<?php the_sub_field('imagem_slide_home','option'); ?>');"></div>
+							<div class="item <?php if($slide == 1){ echo 'active'; } ?>" style="background-image: url('<?php the_sub_field('imagem_slide_produtos','option'); ?>');"></div>
 
 						<?php }
 

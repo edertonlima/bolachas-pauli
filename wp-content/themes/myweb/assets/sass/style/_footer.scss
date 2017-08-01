@@ -23,4 +23,16 @@
 			opacity: .5;
 		}
 	}
+
+	@media all and (max-width: 400px){
+		height: auto;
+		padding: 20px 0;
+
+		.copy, .di20 {
+			display: block;
+			float: none;
+			text-align: center;
+			line-height: 25px;
+		}
+	}
 }
