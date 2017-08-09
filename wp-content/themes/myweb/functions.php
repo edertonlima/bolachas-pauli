@@ -193,7 +193,7 @@ function create_post_type_produto() {
 	    'hierarchical' => false,
 	    'menu_position' => null,
 	    'menu_icon' => 'dashicons-tag',
-	    'supports' => array('title','thumbnail','custom-fields','excerpt')
+	    'supports' => array('title','thumbnail','excerpt')
 	  );
 
     register_post_type( 'produtos', $args );
@@ -232,9 +232,10 @@ function create_taxonomy_categoria_produto() {
     );
 }
 
-
-
-
+function wpcodex_add_excerpt_support_for_pages() {
+	add_post_type_support( 'produtos', 'custom-fields' );
+}
+add_action( 'init', 'wpcodex_add_excerpt_support_for_pages' );
 
 /*
 

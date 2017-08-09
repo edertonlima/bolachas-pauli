@@ -1,0 +1,884 @@
+[
+    {
+        "key": "group_597a80f2e43a5",
+        "title": "Categorias de Produtos",
+        "fields": [
+            {
+                "key": "field_597a812032c8e",
+                "label": "Slide Categoria",
+                "name": "slide_categoria",
+                "type": "repeater",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 1,
+                "max": 0,
+                "layout": "table",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_597a814b32c8f",
+                        "label": "Imagem",
+                        "name": "imagem",
+                        "type": "image",
+                        "instructions": "Tamanho mínimo:\r\n1600px x 768px",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "url",
+                        "preview_size": "thumbnail",
+                        "library": "uploadedTo",
+                        "min_width": 1600,
+                        "min_height": 768,
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_597b4126ab074",
+                "label": "Imagem Listagem",
+                "name": "imagem_listagem",
+                "type": "image",
+                "instructions": "Tamanho da imagem:\r\n1335px x 890px",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "thumbnail",
+                "library": "uploadedTo",
+                "min_width": 1335,
+                "min_height": 890,
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_597b4222ab075",
+                "label": "Icone da Categoria",
+                "name": "ico_listagem",
+                "type": "image",
+                "instructions": "Tamanho da imagem:\r\n132px x 132px",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "thumbnail",
+                "library": "uploadedTo",
+                "min_width": 132,
+                "min_height": 132,
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "taxonomy",
+                    "operator": "==",
+                    "value": "categoria_produto"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_597c10f9acd5d",
+        "title": "Configurações",
+        "fields": [
+            {
+                "key": "field_597c12cf9f9d2",
+                "label": "Texto, Linha Telefone",
+                "name": "telefone",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33.333",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_597c12eb9f9d3",
+                "label": "Horário de Atendimento",
+                "name": "atendimento",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33.333",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_597ff067b29d9",
+                "label": "E-mail contato",
+                "name": "email",
+                "type": "email",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33.333",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "acf-options-geral"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_597c05e312238",
+        "title": "Empresa",
+        "fields": [
+            {
+                "key": "field_597c06f624163",
+                "label": "Visão",
+                "name": "visao",
+                "type": "textarea",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": 3,
+                "new_lines": ""
+            },
+            {
+                "key": "field_597c074b24164",
+                "label": "Missão e Valores",
+                "name": "missao_valores",
+                "type": "textarea",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": 3,
+                "new_lines": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page",
+                    "operator": "==",
+                    "value": "56"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_597b5476baa4e",
+        "title": "Produtos",
+        "fields": [
+            {
+                "key": "field_597b547dc83bb",
+                "label": "Imagem Listagem",
+                "name": "imagem_listagem",
+                "type": "image",
+                "instructions": "Tamanho da imagem:\r\n650px x 845px",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33.333",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "thumbnail",
+                "library": "uploadedTo",
+                "min_width": 650,
+                "min_height": 845,
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_597bed893ef33",
+                "label": "Imagem Descrição",
+                "name": "imagem_descricao",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33.333",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "thumbnail",
+                "library": "uploadedTo",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_597beda73ef34",
+                "label": "Imagem Tabela",
+                "name": "imagem_tabela",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33.333",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "thumbnail",
+                "library": "uploadedTo",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_597b58bc321bb",
+                "label": "Ingredientes",
+                "name": "ingredientes",
+                "type": "textarea",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": 2,
+                "new_lines": ""
+            },
+            {
+                "key": "field_598b490dfdfce",
+                "label": "Campos personalizados",
+                "name": "campos_personalizados",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 0,
+                "max": 0,
+                "layout": "table",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_598b4928fdfcf",
+                        "label": "Título",
+                        "name": "titulo",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_598b4941fdfd0",
+                        "label": "Texto",
+                        "name": "texto",
+                        "type": "textarea",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "maxlength": "",
+                        "rows": 2,
+                        "new_lines": ""
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "produtos"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_597c0785454e0",
+        "title": "Qualidade",
+        "fields": [
+            {
+                "key": "field_597c07968f7cb",
+                "label": "Título",
+                "name": "titulo_qualidade",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_597c07a88f7cc",
+                "label": "Imagem",
+                "name": "imagem_qualidade",
+                "type": "image",
+                "instructions": "Largura da imagem:\r\n300px",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "thumbnail",
+                "library": "uploadedTo",
+                "min_width": 300,
+                "min_height": "",
+                "min_size": "",
+                "max_width": 300,
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_597c07f28f7cd",
+                "label": "Descrição",
+                "name": "descricao_qualidade",
+                "type": "textarea",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": 2,
+                "new_lines": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page",
+                    "operator": "==",
+                    "value": "56"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_597fe14b4b6e5",
+        "title": "SEO",
+        "fields": [
+            {
+                "key": "field_597fe15437a18",
+                "label": "Título do site",
+                "name": "titulo",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_597fe16737a19",
+                "label": "Descrição do site",
+                "name": "descricao",
+                "type": "textarea",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": 3,
+                "new_lines": ""
+            },
+            {
+                "key": "field_597fe1968d62b",
+                "label": "Imagem principal",
+                "name": "imagem_principal",
+                "type": "image",
+                "instructions": "Tamanho da imagem:\r\n500px x 500px",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "medium",
+                "library": "uploadedTo",
+                "min_width": 500,
+                "min_height": 500,
+                "min_size": "",
+                "max_width": 500,
+                "max_height": 500,
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_597fe314a9722",
+                "label": "Favicon",
+                "name": "favicon",
+                "type": "image",
+                "instructions": "Tamanho da imagem\r\n16px x 16px",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "full",
+                "library": "all",
+                "min_width": 16,
+                "min_height": 16,
+                "min_size": "",
+                "max_width": 16,
+                "max_height": 16,
+                "max_size": "",
+                "mime_types": "ico"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "acf-options-geral"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_597fead08c2a5",
+        "title": "SEO Listagem de categorias",
+        "fields": [
+            {
+                "key": "field_597fec5d33647",
+                "label": "Título Pagina",
+                "name": "titulo_pagina",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_597fecbb33648",
+                "label": "Descrição da Pagina",
+                "name": "descricao_pagina",
+                "type": "textarea",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": 2,
+                "new_lines": ""
+            },
+            {
+                "key": "field_597fecdd33649",
+                "label": "Imagem pagina",
+                "name": "imagem_pagina",
+                "type": "image",
+                "instructions": "Tamanho da imagem:\r\n500px x 500px",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "medium",
+                "library": "all",
+                "min_width": 500,
+                "min_height": 500,
+                "min_size": "",
+                "max_width": 500,
+                "max_height": 500,
+                "max_size": "",
+                "mime_types": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "acf-options-produtos"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_5969370847112",
+        "title": "Slide home",
+        "fields": [
+            {
+                "key": "field_5969377082948",
+                "label": "Slide Home",
+                "name": "slide_home",
+                "type": "repeater",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 0,
+                "max": 0,
+                "layout": "table",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_5969378d82949",
+                        "label": "Imagem",
+                        "name": "imagem_slide_home",
+                        "type": "image",
+                        "instructions": "Tamanho mínimo:\r\n1600px x 768px",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33.333",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "url",
+                        "preview_size": "thumbnail",
+                        "library": "uploadedTo",
+                        "min_width": 1600,
+                        "min_height": 768,
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": ""
+                    },
+                    {
+                        "key": "field_598280ac334ca",
+                        "label": "Texto principal",
+                        "name": "texto_slide_home",
+                        "type": "textarea",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33.333",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "maxlength": "",
+                        "rows": 3,
+                        "new_lines": "br"
+                    },
+                    {
+                        "key": "field_598280d2334cb",
+                        "label": "Texto secundário",
+                        "name": "sub_texto_slide_home",
+                        "type": "textarea",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33.333",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "maxlength": "",
+                        "rows": 3,
+                        "new_lines": ""
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "slide-home"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_597fee591a71b",
+        "title": "Slide Produtos",
+        "fields": [
+            {
+                "key": "field_597fee5922ab8",
+                "label": "Slide Produtos",
+                "name": "slide_produtos",
+                "type": "repeater",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 0,
+                "max": 0,
+                "layout": "table",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_597fee5927509",
+                        "label": "Imagem",
+                        "name": "imagem_slide_produtos",
+                        "type": "image",
+                        "instructions": "Tamanho mínimo:\r\n1600px x 768px",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "url",
+                        "preview_size": "thumbnail",
+                        "library": "uploadedTo",
+                        "min_width": 1600,
+                        "min_height": 768,
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": ""
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "acf-options-produtos"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    }
+]

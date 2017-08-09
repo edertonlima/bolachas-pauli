@@ -36,7 +36,15 @@
 
 					<span class="item-info"><strong>Ingredientes: </strong><?php the_field('ingredientes'); ?></span>
 
-					<?php 
+					<?php if( have_rows('campos_personalizados') ):
+						while ( have_rows('campos_personalizados') ) : the_row(); ?>
+
+							<span class="item-info"><strong><?php the_sub_field('titulo'); ?></strong><?php the_sub_field('texto'); ?></span>
+
+						<?php endwhile;
+					endif; ?>
+
+					<?php /*
 						$custom = get_post_custom($post->ID);
 						//var_dump($custom);
 						foreach($custom as $key => $value) { 
@@ -47,7 +55,7 @@
 									<span class="item-info"><strong><?php echo $key; ?> </strong><?php echo $value[0]; ?></span>
 								<?php }
 							}
-						}
+						} */
 					?>
 				</div>
 				<div class="col-4 col-m-2">

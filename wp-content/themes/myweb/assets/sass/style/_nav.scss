@@ -77,12 +77,17 @@
 				&.submenu {
 					position: absolute;
 					width: 320px;
-					left: 0;
-					top: 62px;
+					left: 0px;
+					top: 60px;
 					margin-left: -4px;
 					overflow-x: hidden;
 					overflow-y: scroll;
-					height: 78vh;
+					//height: 78vh;
+
+					padding: 0 40px 40px;
+					max-height: 78vh;
+					height: auto;
+					background-color: rgba(#FFF1E2, .9);
 
 					&:before {
 						content: '';
@@ -92,6 +97,7 @@
 						width: 100%;
 						height: 100vh;
 						left: 0;
+						display: none;
 					}
 				}
 

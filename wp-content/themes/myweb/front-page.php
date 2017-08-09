@@ -36,7 +36,7 @@
 </section>
 
 <section class="box-content box-qualidade">
-	<span id="qualidade" style="position: absolute; top: 700px;"></span>
+	<span id="qualidade" class="link_page_ancora"></span>
 	<h2 class="azul">QUALIDADE</h2>
 	<div class="container">
 		<div class="qualidade">
@@ -83,7 +83,7 @@
 </section>
 
 <section class="box-content">
-	<span id="empresa" style="position: absolute; top: 2000px;"></span>
+	<span id="empresa" class="link_page_ancora"></span>
 	<h2 class="marrom">A EMPRESA</h2>
 	<div class="container">
 		<div class="empresa">
@@ -105,7 +105,7 @@
 </section>
 
 <section class="box-content">
-	<span id="contato" style="position: absolute; top: 2900px;"></span>
+	<span id="contato" class="link_page_ancora"></span>
 	<h2 class="verde-limao">CONTATO</h2>
 	<div class="contato">
 		<div class="row no-padding">
